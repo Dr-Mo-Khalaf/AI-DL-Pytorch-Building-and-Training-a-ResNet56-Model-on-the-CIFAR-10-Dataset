@@ -1,0 +1,17 @@
+If you saved the entire model:
+If you saved the entire model (including the architecture), you can load it directly like this:
+
+python
+Copy code
+model = torch.load('entire_model-3.pth')
+model.eval()
+
+
+Model Definition: You need to define the model class (ResNet56 and BottleNeckResidualBlock) the same way as when you trained the model.
+load_state_dict: This loads the trained weights into the model.
+model.eval(): This is important because it sets the model in evaluation mode, which disables features like dropout or batch normalization that behave differently during training.
+# Instantiate the model
+model = ResNet56(input_features=3, hidden_units=64, output_classes=10)
+
+# Load the saved model weights (make sure the file path is correct)
+model.load_state_dict(torch.load('model.pth'))  #
